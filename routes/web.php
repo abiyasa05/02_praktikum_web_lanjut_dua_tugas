@@ -22,6 +22,21 @@ Route::get('/home', function () {
     return '<iframe src="https://www.educastudio.com/" width="100%" height="100%"></iframe>';
 });
 
+// Route Biasa Halaman About Us
+Route::get('/about-us', function (){
+    return '<iframe src="https://www.educastudio.com/about-us" width="100%" height="100%"></iframe>';
+});
+
+// Route Biasa Halaman About Us
+Route::get('/contact', function (){
+    return '<iframe src="https://www.educastudio.com/contact-us" width="100%" height="100%"></iframe>';
+});
+
+// Route Resource Halaman Contact Us
+Route::resource('/contact-us', ContactUsController::class)->only([
+    'contact',
+]);
+
 // Route Prefix Halaman Products
 Route::prefix('products')->group(function(){
     Route::get('category/marbel-edu-games',function(){
@@ -76,12 +91,5 @@ Route::prefix('program')->group(function(){
     });
 });
 
-// Route Biasa Halaman About Us
-Route::get('/about-us', function (){
-    echo '<iframe src="https://www.educastudio.com/about-us" width="100%" height="100%"></iframe>';
-});
 
-// Route Resource Halaman Contact Us
-Route::resource('/contact-us', ContactUsController::class)->only([
-    'contact',
-]);
+
